@@ -4,7 +4,7 @@ class View {
     this.el = el
     this.setupBoard();
     this.bindEvents();
-    debugger
+    this.count = 0;
   }
 
   setupBoard() {
@@ -24,17 +24,21 @@ class View {
   }
 
   handleClick(e) {
-    // e.preventDefault();
     if (e.target.tagName === "LI") {
       this.makeMove();
     }
-    // document.querySelectorAll("ul li").forEach(li => {
-    //   li.addEventListener("click", this.makeMove.bind(this))
-    // });
   }
 
   makeMove() {
-    console.log("it works!")
+    if (this.count % 2 === 0) {
+      event.target.classList.add("X")
+      event.target.innerText = "X"
+    } else {
+      event.target.classList.add("O")
+      event.target.innerText = "O"
+    }
+    console.log(event.target.classList)
+    this.count += 1
   }
 
 }
@@ -42,6 +46,7 @@ class View {
 module.exports = View;
 
 
-//three rows, three spots
-//put each row in li, 9 total
-//create 3X3 grid and the positions would look like: [0, 0] [0, 1], [0, 2]
+
+
+
+

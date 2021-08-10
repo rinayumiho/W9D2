@@ -21,3 +21,11 @@ h1 {
     display: flex;
     justify-content: center;
 }
+
+.X {
+    background-color: aliceblue;
+}
+
+.O {
+    background-color: red;
+}
