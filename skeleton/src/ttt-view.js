@@ -3,6 +3,8 @@ class View {
     this.game = game;
     this.el = el
     this.setupBoard();
+    this.bindEvents();
+    debugger
   }
 
   setupBoard() {
@@ -10,25 +12,29 @@ class View {
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
         const li = document.createElement("li");
-        // li.innerText = `[${row}, ${col}]`;
-        li.innerHTML = 
+        li.value = row * 3 + col;
         ul.appendChild(li);
-        //create image, give image pos of [row, col] 
       }
     }
     this.el.appendChild(ul);
   }
   
-  bindEvents() {}
-
-  handleClick(e) {
-    document.querySelectorAll("ul li").forEach(li => {
-      li.addEventListener("click", this.makeMove(square));
-    });
+  bindEvents() {
+    this.el.addEventListener("click", this.handleClick.bind(this));
   }
 
-  makeMove(square) {
+  handleClick(e) {
+    // e.preventDefault();
+    if (e.target.tagName === "LI") {
+      this.makeMove();
+    }
+    // document.querySelectorAll("ul li").forEach(li => {
+    //   li.addEventListener("click", this.makeMove.bind(this))
+    // });
+  }
 
+  makeMove() {
+    console.log("it works!")
   }
 
 }
