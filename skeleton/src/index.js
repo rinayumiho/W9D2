@@ -1,8 +1,11 @@
-const View = require("../ttt_node/game");
-const Game = require("./ttt-view");
+const View = require("./ttt-view");
+const Game = require("../ttt_node/game");
 
 document.addEventListener("DOMContentLoaded", () => {
-  const view = new View();
   const game = new Game();
+  const doc = document.querySelector(".ttt")
+
+  new View(game, doc);
+
 
 });

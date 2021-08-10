@@ -15,7 +15,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ../ttt_node/game */ \"./ttt_node/game.js\");\nconst Game = __webpack_require__(/*! ./ttt-view */ \"./src/ttt-view.js\");\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const view = new View();\n  const game = new Game();\n\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__(/*! ./ttt-view */ \"./src/ttt-view.js\");\nconst Game = __webpack_require__(/*! ../ttt_node/game */ \"./ttt_node/game.js\");\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const game = new Game();\n  const doc = document.querySelector(\".ttt\")\n\n  new View(game, doc);\n\n\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -25,7 +25,7 @@ eval("const View = __webpack_require__(/*! ../ttt_node/game */ \"./ttt_node/game
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\n  constructor(game, el) {\n    this.game = game;\n    this.el = el\n    this.board = this.setupBoard();\n  }\n\n  setupBoard() {\n    const ul = document.createElement(\"ul\")\n    for (let row = 0; row < 3; row++) {\n      const li = document.createElement(\"li\");\n      \n    }\n  }\n  \n  bindEvents() {}\n\n  handleClick(e) {}\n\n  makeMove(square) {}\n\n}\n\nmodule.exports = View;\n\n\n//three rows, three spots\n//put each row in li, 9 total\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, el) {\n    this.game = game;\n    this.el = el\n    this.setupBoard();\n  }\n\n  setupBoard() {\n    const ul = document.createElement(\"ul\")\n    for (let row = 0; row < 3; row++) {\n      for (let col = 0; col < 3; col++) {\n        const li = document.createElement(\"li\");\n        li.innerText = `[${row}, ${col}]`;\n        ul.appendChild(li);\n        //create image, give image pos of [row, col] \n      }\n    }\n    this.el.appendChild(ul);\n  }\n  \n  bindEvents() {}\n\n  handleClick(e) {}\n\n  makeMove(square) {}\n\n}\n\nmodule.exports = View;\n\n\n//three rows, three spots\n//put each row in li, 9 total\n//create 3X3 grid and the positions would look like: [0, 0] [0, 1], [0, 2]\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ }),
 
