@@ -10,7 +10,8 @@ class View {
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
         const li = document.createElement("li");
-        li.innerText = `[${row}, ${col}]`;
+        // li.innerText = `[${row}, ${col}]`;
+        li.innerHTML = 
         ul.appendChild(li);
         //create image, give image pos of [row, col] 
       }
@@ -20,9 +21,15 @@ class View {
   
   bindEvents() {}
 
-  handleClick(e) {}
+  handleClick(e) {
+    document.querySelectorAll("ul li").forEach(li => {
+      li.addEventListener("click", this.makeMove(square));
+    });
+  }
 
-  makeMove(square) {}
+  makeMove(square) {
+
+  }
 
 }
 

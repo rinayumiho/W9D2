@@ -1,0 +1,23 @@
+ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    list-style-type: none;
+    width: 32%;
+    height: 190px;
+    /* border-right: 5px; */
+    border-color: black;
+    background-color: grey;
+    border-style: solid;
+}
+
+li:hover {
+    background-color: yellow;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
